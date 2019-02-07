@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Burger from './components/Burger/Burger.js';
 
 const availableIngredients = [
     {name: 'salad', price: 5, label: 'Салат', class: 'Salad'},
@@ -20,7 +21,10 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-
+                <Burger
+                    ingredients={this.state.ingredients}
+                    onIngredients={availableIngredients}
+                />
             </div>
         );
     }
