@@ -1,0 +1,36 @@
+.Control p {
+    display: inline-block;
+    font-size: 18px;
+    width: 15%;
+
+}
+.Control button {
+    width: 80px;
+    height: 40px;
+    margin-right: 20px;
+    display: inline-block;
+    border: 0;
+    color: white;
+    font-size: 17px;
+}
+
+.Control .Less {
+    background: #DD9651;
+    border: 1px solid #B36517;
+}
+
+.Control .More {
+    background: #965D20;
+    border: 0;
+}
+
+.Control button:hover {
+    background: #a74300;
+}
+
+.Control button:disabled {
+    border: 0;
+    background: #cdcece
+}
+
+

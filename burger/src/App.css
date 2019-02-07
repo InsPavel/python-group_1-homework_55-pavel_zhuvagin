@@ -125,3 +125,11 @@
     font-weight: bold;
     font-size: 1.2rem;
 }
+
+.Panel {
+    width: 500px;
+    padding: 10px;
+    margin: 0 auto;
+    background: #D98B2D;
+    text-align: center;
+}
