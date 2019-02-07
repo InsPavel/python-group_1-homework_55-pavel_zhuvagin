@@ -13,18 +13,17 @@ const availableIngredients = [
 
 class App extends Component {
     state = {
-        ingredients: {
-            salad: {count: 0, total: 0},
-            cheese: {count: 0, total: 0},
-            meat: {count: 0, total: 0},
-            bacon: {count: 0, total: 0}
-        },
+        ingredients: [
+            {name: 'salad', count: 0, total: 0},
+            {name: 'cheese', count: 0, total: 0},
+            {name: 'meat', count: 0, total: 0},
+            {name: 'bacon', count: 0, total: 0}
+        ],
     };
 
     changeIngredient = (action, name) => {
-        let ingredient = {...this.state.ingredients[name]};
-
         let price = availableIngredients.find(item => item.name === name).price;
+        let ingredient = this.state.ingredients.find(item => item.name === name);
         if(action === 'more') {
             ingredient.count += 1;
         }
@@ -33,7 +32,7 @@ class App extends Component {
         }
         ingredient.total = ingredient.count * price;
 
-        let ingredients = {...this.state.ingredients};
+        let ingredients = [...this.state.ingredients];
 
         ingredients[name] = ingredient;
 
@@ -44,16 +43,18 @@ class App extends Component {
     };
 
     isButtonDisabled = (ingredient) => {
-        let ingredients = {...this.state.ingredients[ingredient]};
+        let ingredients = this.state.ingredients.find(item => item.name === ingredient);
         return ingredients.count <= 0;
     };
 
-    amountTotal = () => {
-        let ingredient = {...this.state.ingredients};
-        let totalprice = 20;
-        totalprice += ingredient.salad.total + ingredient.cheese.total + ingredient.meat.total+ ingredient.bacon.total;
-        return totalprice;
 
+    amountTotal = () => {
+        let ingredient = [...this.state.ingredients];
+        let totalprice = 20;
+        ingredient.map((index) => {
+            totalprice += index.total;
+        });
+        return totalprice;
     };
 
 
