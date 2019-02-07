@@ -42,6 +42,21 @@ class App extends Component {
         state.ingredients = ingredients;
         this.setState(state);
     };
+
+    isButtonDisabled = (ingredient) => {
+        let ingredients = {...this.state.ingredients[ingredient]};
+        return ingredients.count <= 0;
+    };
+
+    amountTotal = () => {
+        let ingredient = {...this.state.ingredients};
+        let totalprice = 20;
+        totalprice += ingredient.salad.total + ingredient.cheese.total + ingredient.meat.total+ ingredient.bacon.total;
+        return totalprice;
+
+    };
+
+
     render() {
         return (
             <div className="App">
@@ -50,9 +65,11 @@ class App extends Component {
                     onIngredients={availableIngredients}
                 />
                 <div className="Panel">
+                    <h3>Общая сумма: {this.amountTotal()} сом</h3>
                         <BurgerForm
                             onIngredients={availableIngredients}
                             onChangeIngridients={this.changeIngredient}
+                            onButtonDisabled={this.isButtonDisabled}
                         />
                 </div>
             </div>

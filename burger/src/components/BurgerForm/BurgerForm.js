@@ -11,6 +11,7 @@ function BurgerForm(props) {
                         price={ingredient.price}
                         onAdd={() => props.onChangeIngridients('more', ingredient.name)}
                         onRemove={() => props.onChangeIngridients('less', ingredient.name)}
+                        onDisabled={() => props.onButtonDisabled(ingredient.name)}
                         />
                     })
                 }
