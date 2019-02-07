@@ -1,28 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+const availableIngredients = [
+    {name: 'salad', price: 5, label: 'Салат', class: 'Salad'},
+    {name: 'cheese', price: 20, label: 'Сыр', class: 'Cheese'},
+    {name: 'meat', price: 50, label: 'Мясо', class: 'Meat'},
+    {name: 'bacon', price: 30, label: 'Бекон', class: 'Bacon'}
+];
+
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    state = {
+        ingredients: {
+            salad: {count: 0, total: 0},
+            cheese: {count: 0, total: 0},
+            meat: {count: 0, total: 0},
+            bacon: {count: 0, total: 0}
+        },
+    };
+    render() {
+        return (
+            <div className="App">
+
+            </div>
+        );
+    }
 }
 
 export default App;
